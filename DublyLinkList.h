@@ -41,9 +41,9 @@ namespace plib {
 				return ans;
 			}
 
-			void removeNode(Node *node) {
+			void removeNode(Node *Node) {
 				
-				if (node == head) {
+				if (Node == head) {
 					head = head->next;
 					if (head) {
 						head->prev = NULL;
@@ -53,7 +53,7 @@ namespace plib {
 					end->next = NULL;
 				}
 
-				delete (node);
+				delete (Node);
 			}
 
 		public:
@@ -81,6 +81,22 @@ namespace plib {
 			void remove(T key) {
 				Node *ans = getNode(key);
 				removeNode(ans);
+			}
+
+			Node *begin() {
+				return head;
+			}
+
+			Node *next(Node *temp) {
+				return temp->next;
+			}
+
+			std::pair<T,U> getKeyValue(Node *temp) {
+				return {temp->key, temp->value};
+			}
+
+			bool hasNext(Node *temp) {
+				return (temp != NULL);
 			}
 	}; 
 

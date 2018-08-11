@@ -5,21 +5,16 @@ using namespace std;
 using namespace plib;
 
 int main() {
-	HMap<string, string> m;
-	m.insert("abhishek", "jain"  );
-	m.insert("yash"    , "tiwari");
-	m.insert("sujnesh" , "mishra");
+	DublyLinkList<string, string> dll;
+	dll.insert("abhishek", "jain"  );
+	dll.insert("yash"    , "tiwari");
+	dll.insert("sujnesh" , "mishra");
 
+	auto it = dll.begin();
 
-	// cout << m.get("priyanshu") << endl;
-
-	vector<int> v(64);
-
-	for(int i=0;i<128;i++) {
-		v.push_back(i);
+	while (dll.hasNext(it)) {
+		cout << dll.getKeyValue(it).first << " " << dll.getKeyValue(it).second << endl;
+		it = dll.next(it);
 	}
 
-	vector<int> v1(128);
-	v = v1;
-	cout << v.size();
 }
